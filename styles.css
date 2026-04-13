@@ -665,6 +665,54 @@ img { display: block; max-width: 100%; }
 .mock-cover-lines div:nth-child(2) { width: 72%; }
 .mock-cover-lines div:nth-child(3) { width: 48%; }
 
+/* ---- Rate comparison mock (CargoXB) ---- */
+.mock-rate-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.mock-rate-badge {
+  width: 26px; height: 26px;
+  background: #dce8f5;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.mock-rate-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.mock-rate-info div:first-child {
+  height: 7px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 3px;
+  width: 65%;
+}
+.mock-rate-info div:last-child {
+  height: 5px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 3px;
+  width: 45%;
+}
+.mock-rate-price {
+  width: 38px; height: 20px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+.mock-rate-row--selected {
+  background: rgba(220,232,245,0.6);
+  margin: 0 -8px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  border-bottom: none;
+}
+.mock-rate-row--selected .mock-rate-badge { background: rgba(58,109,181,0.35); }
+.mock-rate-row--selected .mock-rate-price { background: rgba(58,109,181,0.25); }
+
 
 /* ============================================================
    EXPERIENCE SECTION
@@ -1058,6 +1106,54 @@ img { display: block; max-width: 100%; }
 }
 [data-theme="dark"] .mock-cover {
   background: linear-gradient(145deg, #1a1230 0%, #2d1a50 60%, #4a2870 100%);
+}
+[data-theme="dark"] .mock-rate-badge {
+  background: #1b2d45;
+}
+[data-theme="dark"] .mock-rate-price {
+  background: rgba(255,255,255,0.08);
+}
+[data-theme="dark"] .mock-rate-row--selected {
+  background: rgba(58,109,181,0.12);
+}
+[data-theme="dark"] .cs-rate-mock {
+  background: #1c1b19;
+  border-color: rgba(255,255,255,0.06);
+}
+[data-theme="dark"] .cs-rate-mock-topbar {
+  background: #141312;
+  border-color: rgba(255,255,255,0.05);
+}
+[data-theme="dark"] .cs-rate-filter-row {
+  background: #1a1918;
+  border-color: rgba(255,255,255,0.05);
+}
+[data-theme="dark"] .cs-rate-filter-chip {
+  background: #252320;
+}
+[data-theme="dark"] .cs-rate-filter-btn {
+  background: #e8e4dd;
+}
+[data-theme="dark"] .cs-rate-results-header div {
+  background: #2a2826;
+}
+[data-theme="dark"] .cs-rate-item--selected {
+  background: rgba(58,109,181,0.1);
+}
+[data-theme="dark"] .cs-rate-carrier-icon {
+  background: #252320;
+}
+[data-theme="dark"] .cs-rate-item-name {
+  background: rgba(255,255,255,0.15);
+}
+[data-theme="dark"] .cs-rate-item-bar {
+  background: #252320;
+}
+[data-theme="dark"] .cs-rate-item-price div:first-child {
+  background: rgba(255,255,255,0.12);
+}
+[data-theme="dark"] .cs-rate-item-price div:last-child {
+  background: rgba(255,255,255,0.06);
 }
 
 
@@ -1913,6 +2009,395 @@ body[data-cursor="card"] .cursor-label {
   border-left: 3px solid #d0cdc7;
 }
 
+/* ---- cs-detail-body list styles ---- */
+.cs-detail-body ul {
+  margin: 0;
+  padding-left: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cs-detail-body li {
+  font-size: var(--body-size);
+  line-height: 1.6;
+  color: var(--ink);
+  opacity: 0.78;
+}
+
+/* CargoXB — Rate Portal Mock (case study featured) */
+.cs-rate-mock {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 700px;
+  margin: 0 auto;
+  transition: transform 0.4s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth);
+}
+.cs-rate-mock:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(26,25,23,0.06);
+}
+.cs-rate-mock-topbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: #f8f9fa;
+  border-bottom: 1px solid var(--border);
+}
+.cs-rate-mock-topbar span {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+}
+.cs-rate-mock-topbar span:nth-child(1) { background: #f5c6c4; }
+.cs-rate-mock-topbar span:nth-child(2) { background: #f5e4c4; }
+.cs-rate-mock-topbar span:nth-child(3) { background: #c4e8c4; }
+.cs-rate-filter-row {
+  display: flex;
+  gap: 8px;
+  padding: 14px 20px;
+  background: #f8f9fb;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+.cs-rate-filter-chip {
+  height: 30px;
+  background: #e8eef5;
+  border-radius: 7px;
+  flex: 1;
+}
+.cs-rate-filter-chip--wide { flex: 1.8; }
+.cs-rate-filter-btn {
+  width: 80px; height: 30px;
+  background: #2a2a2a;
+  border-radius: 7px;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+.cs-rate-results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 8px;
+}
+.cs-rate-results-header div {
+  height: 9px;
+  background: #e8e5e0;
+  border-radius: 4px;
+}
+.cs-rate-results-header div:first-child { width: 90px; }
+.cs-rate-results-header div:last-child  { width: 70px; }
+.cs-rate-list {
+  padding: 4px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cs-rate-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+.cs-rate-item--selected { background: #edf3fb; }
+.cs-rate-carrier-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: #e8eef5;
+  flex-shrink: 0;
+}
+.cs-rate-item--selected .cs-rate-carrier-icon { background: #dce8f5; }
+.cs-rate-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cs-rate-item-name {
+  height: 10px;
+  background: rgba(0,0,0,0.18);
+  border-radius: 4px;
+  width: 50%;
+}
+.cs-rate-item-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: #dce8f5;
+}
+.cs-rate-item--selected .cs-rate-item-bar {
+  background: linear-gradient(to right, #3a6db5, #6a9bd4);
+  opacity: 0.55;
+}
+.cs-rate-item-price {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.cs-rate-item-price div:first-child {
+  height: 13px; width: 52px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 4px;
+}
+.cs-rate-item-price div:last-child {
+  height: 8px; width: 38px;
+  background: rgba(0,0,0,0.07);
+  border-radius: 4px;
+}
+.cs-rate-item--selected .cs-rate-item-price div:first-child {
+  background: rgba(58,109,181,0.4);
+}
+
+
+/* ============================================================
+   CASE STUDY — REDESIGNED COMPONENT LIBRARY
+   ============================================================ */
+
+/* Context strip */
+.cs-context {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.cs-context-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.cs-context-item {
+  padding: 26px 28px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cs-context-item:last-child { border-right: none; }
+.cs-context-label {
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+.cs-context-value {
+  font-family: var(--font-sans);
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* What I Did — contribution grid */
+.cs-contrib-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.cs-contrib-item {
+  padding: 36px 30px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--bg-card);
+}
+.cs-contrib-item:last-child { border-right: none; }
+.cs-contrib-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+}
+.cs-contrib-item h4 {
+  font-family: var(--font-sans);
+  font-size: 0.97rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.cs-contrib-item p {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--ink-mid);
+}
+
+/* Problem cards */
+.cs-pain-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.cs-pain-card {
+  padding: 32px 28px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+}
+.cs-pain-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(26,25,23,0.06);
+}
+.cs-pain-num {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  color: var(--ink);
+  opacity: 0.12;
+  line-height: 1;
+}
+.cs-pain-card h4 {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.cs-pain-card p {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--ink-mid);
+}
+
+/* Design showcase */
+.cs-showcase-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.cs-showcase-grid + .cs-showcase-grid { margin-top: 20px; }
+.cs-showcase-frame { display: flex; flex-direction: column; }
+.cs-showcase-chrome {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 9px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 12px 12px 0 0;
+}
+.cs-showcase-chrome span {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+.cs-showcase-chrome span:nth-child(1) { background: rgba(200,80,60,0.25); }
+.cs-showcase-chrome span:nth-child(2) { background: rgba(200,160,60,0.25); }
+.cs-showcase-chrome span:nth-child(3) { background: rgba(60,180,60,0.25); }
+.cs-showcase-img {
+  aspect-ratio: 16 / 10;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  position: relative;
+}
+.cs-showcase-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cs-showcase-caption {
+  margin-top: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+/* Decision cards */
+.cs-decisions { margin-top: 40px; }
+.cs-decision-card {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  padding: 36px 0;
+  border-top: 1px solid var(--border);
+  align-items: start;
+}
+.cs-decision-card:last-child { border-bottom: 1px solid var(--border); }
+.cs-decision-num {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--ink);
+  opacity: 0.2;
+  padding-top: 3px;
+}
+.cs-decision-body { display: flex; flex-direction: column; gap: 10px; }
+.cs-decision-tag {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--link);
+  background: rgba(58,109,181,0.08);
+  padding: 3px 9px;
+  border-radius: 100px;
+  width: fit-content;
+}
+.cs-decision-body h4 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.cs-decision-body p {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--ink-mid);
+  max-width: 620px;
+}
+
+/* Dark mode for new sections */
+[data-theme="dark"] .cs-contrib-item {
+  background: rgba(255,255,255,0.03);
+}
+[data-theme="dark"] .cs-contrib-icon {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.08);
+}
+[data-theme="dark"] .cs-pain-card {
+  background: rgba(255,255,255,0.02);
+}
+[data-theme="dark"] .cs-showcase-chrome {
+  background: #1a1918;
+}
+[data-theme="dark"] .cs-showcase-img {
+  background: #1c1b19;
+}
+
+/* Responsive — redesigned sections */
+@media (max-width: 900px) {
+  .cs-context-inner { grid-template-columns: repeat(2, 1fr); }
+  .cs-context-item:nth-child(2) { border-right: none; }
+  .cs-context-item:nth-child(3) { border-top: 1px solid var(--border); border-right: 1px solid var(--border); }
+  .cs-context-item:nth-child(4) { border-top: 1px solid var(--border); }
+  .cs-contrib-grid { grid-template-columns: 1fr; }
+  .cs-contrib-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .cs-contrib-item:last-child { border-bottom: none; }
+  .cs-pain-grid { grid-template-columns: 1fr; }
+  .cs-showcase-grid { grid-template-columns: 1fr; }
+  .cs-decision-card { grid-template-columns: 48px 1fr; }
+}
+@media (max-width: 600px) {
+  .cs-context-inner { grid-template-columns: 1fr 1fr; padding: 0 20px; }
+  .cs-context-item { padding: 20px 16px; }
+}
 
 /* ============================================================
    PLAYGROUND SECTION
